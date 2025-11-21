@@ -1,5 +1,6 @@
-import sys
 import random
+import sys
+
 import pygame
 
 # ----------------------------
@@ -13,8 +14,8 @@ SNAKE_SPEED = 12  # FPS
 BLACK = (0, 0, 0)
 WHITE = (240, 240, 240)
 GREEN = (0, 200, 0)
-RED   = (220, 50, 50)
-GRAY  = (40, 40, 40)
+RED = (220, 50, 50)
+GRAY = (40, 40, 40)
 YELLOW = (250, 200, 0)
 
 # Arah sebagai vektor grid (dx, dy)
@@ -154,8 +155,15 @@ def main():
         if snake:
             hx, hy = snake[0]
             eye_size = BLOCK_SIZE // 6
-            pygame.draw.circle(screen, YELLOW, (hx + BLOCK_SIZE // 3, hy + BLOCK_SIZE // 3), eye_size)
-            pygame.draw.circle(screen, YELLOW, (hx + 2 * BLOCK_SIZE // 3, hy + BLOCK_SIZE // 3), eye_size)
+            pygame.draw.circle(
+                screen, YELLOW, (hx + BLOCK_SIZE // 3, hy + BLOCK_SIZE // 3), eye_size
+            )
+            pygame.draw.circle(
+                screen,
+                YELLOW,
+                (hx + 2 * BLOCK_SIZE // 3, hy + BLOCK_SIZE // 3),
+                eye_size,
+            )
 
         # Skor
         score_surf = font.render(f"Score: {score}", True, WHITE)
@@ -170,7 +178,9 @@ def main():
             go_rect = go_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 - 30))
             screen.blit(go_text, go_rect)
 
-            tip_text = font.render("Press R/Enter/Space to Restart, Q/Esc to Quit", True, WHITE)
+            tip_text = font.render(
+                "Press R/Enter/Space to Restart, Q/Esc to Quit", True, WHITE
+            )
             tip_rect = tip_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 20))
             screen.blit(tip_text, tip_rect)
 
